@@ -56,7 +56,8 @@ RUN cd /src/squid && \
 		--enable-zph-qos \
 		--with-openssl \
 		--enable-ssl \
-		--enable-ssl-crtd \ 
+		--enable-ssl-crtd \
+        --enable-http-violations \
 		--disable-translation \
 		--with-swapdir=/var/spool/squid4 \
 		--with-logdir=/var/log/squid4 \
