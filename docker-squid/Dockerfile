@@ -79,7 +79,7 @@ RUN wget -O /usr/local/bin/p2 \
     chmod +x /usr/local/bin/p2
 
 # Clone and build proxychains-ng for SSL upstream proxying
-ARG PROXYCHAINS_COMMITTISH=7a233fb1f05bcbf3d7f5c91658932261de1e13cb
+ARG PROXYCHAINS_COMMITTISH=b8cdfe842ceb8a3f35d1f6e3c86cbda48b2f4d38
 
 RUN apt-get install -y git
 
@@ -95,6 +95,8 @@ RUN wget -O /tmp/doh.tgz \
     $URL_DOH && \
     tar -xvvf /tmp/doh.tgz --strip-components=1 -C /usr/local/bin/ && \
     chmod +x /usr/local/bin/dns-over-https-proxy
+
+RUN apt-get install -y socat
 
 COPY squid.conf.p2 /squid.conf.p2
 COPY squid.bsh /squid.bsh
